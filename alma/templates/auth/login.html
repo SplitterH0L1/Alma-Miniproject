@@ -1,0 +1,15 @@
+{% extends ('base.html') %}
+
+{% block header %}<h1>{% block title %}inicio de sesion{% endblock %}</h1>{% endblock %}
+
+{% block content %} 
+<form method="POST"/>
+    <label>Username</label>
+    <input type="text" name="username" id="username" required placeholder="ingrese su usuario"/>
+    <label>Contraseña</label>
+    <input type="text" name="password" id="password" required placeholder="ingrese su contraseña"/>
+    <input type="submit" value="Iniciar sesion" />
+</form>
+{% endblock %}
+
+
