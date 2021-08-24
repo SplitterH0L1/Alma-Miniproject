@@ -15,7 +15,7 @@ def get_db(): #funcion para obtener la base de datos y el cursor
         )
         g.c = g.db.cursor(dictionary=True)
     return g.db, g.c
-
+                
 def close_db(e=None): #funcion para cerrar la conexion a la base de datos
     db=g.pop('db', None) #con pop quitamos el atributo db
 

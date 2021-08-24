@@ -21,5 +21,9 @@ windows:
 . venv/script/activation
 
 linux:
+. venv/bin/activate
+
+configuramos las variables de entorno
+
 
 ......
