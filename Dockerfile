@@ -1,20 +1,14 @@
-FROM python:3.9-alpine
-
-RUN apk update && apk add --no-cache nano
+FROM python:3.9-slim-buster
 
 EXPOSE 5000/tcp
 
-COPY alma /usr/src/alma
+ENV VIRTUAL_ENV=/opt/venv
 
-WORKDIR /usr/src/
+RUN python3 -m venv $VIRTUAL_ENV
 
-RUN pip install virtualenv \
-    && python3 -m venv venv \
-    && . venv/bin/activate
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-RUN export FLASK_APP=alma.py
-
-WORKDIR /usr/src/alma
+COPY alma .
 
 RUN pip install -r requirements.txt
 

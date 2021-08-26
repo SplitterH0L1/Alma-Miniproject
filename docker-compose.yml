@@ -12,12 +12,12 @@ services:
     container_name: alma
     env_file:
       - .env
-    #tty: true 
-    command: sh -c 'tail -F anything'
+    tty: true 
+    #command: sh -c 'tail -F anything'
     ports:
-      - 5000
-    volumes:
-      - alma-data-code:/usr/src/alma/
+      - 5000:5000
+    #volumes:
+    #  - alma-data-code:/usr/src/alma/
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_USER: ${DATABASE_USER}
@@ -33,5 +33,5 @@ services:
       - web
     external_links:
       - mysql:mysql
-volumes:
-  alma-data-code:
+#volumes:
+#  alma-data-code:
