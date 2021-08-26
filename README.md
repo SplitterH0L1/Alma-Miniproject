@@ -1,29 +1,33 @@
-# Alma-Miniproject
+Alma-Miniproject
+===
 
-::::::::::::::: Bienvenidos ::::::::::
+## Dependencias
+Python 3.9
+Mysql 5.7
+Docker (opcional)
+Docker-compose (opcional)
+Traefik (opcional)
 
-Instalación:
+## Despliegue basico:
+Creamos la carpeta del entorno virtual y ejecutamos el script de activacion
+```
+$ cd alma
+$ pip install virtualenv \
+    && virtualenv .venv \
+    && sh .venv/bin/activate
+```
 
-instalar python 3.9 (actualmente la ultima version)
-para windows usamos py para distribuciones linux python3
+### Variables para la base de datos
+```
+$ export DATABASE_HOST=
+$ export DATABASE_USER=
+$ export DATABASE_PASSWORD=
+$ export DATABASE=
+```
 
-instalamos entorno virtual con pip:
+## Despliegue con docker
 
-py -m pip install virtualenv
+```
 
-creamos la carpeta del entorno virtual:
+```
 
-py -m venv venv (hacer esto en el directorio donde se encuentra alma/ )
-
-ejecutamos el script de activacion
-
-windows:
-. venv/script/activation
-
-linux:
-. venv/bin/activate
-
-configuramos las variables de entorno
-
-
-......

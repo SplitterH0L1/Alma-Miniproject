@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  web:
+    external: true
+  database:
+    external: true
+
+services:
+  alma:
+    build: ./
+    container_name: alma
+    env_file:
+      - .env
+    #tty: true 
+    command: sh -c 'tail -F anything'
+    ports:
+      - 5000
+    volumes:
+      - alma-data-code:/usr/src/alma/
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE: ${DATABASE}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.alma.entrypoints=websecure"
+      - "traefik.http.routers.alma.rule=Host(`alma.saiyans.com.ve`)"
+      - "traefik.http.routers.alma.tls.certresolver=lets-encr"
+    networks:
+      - database
+      - web
+    external_links:
+      - mysql:mysql
+volumes:
+  alma-data-code:

@@ -1,11 +1,21 @@
 FROM python:3.9-alpine
 
+RUN apk update && apk add --no-cache nano
+
 EXPOSE 5000/tcp
 
-COPY alma /usr/src/myapp/
+COPY alma /usr/src/alma
 
-WORKDIR /usr/src/myapp/
+WORKDIR /usr/src/
 
-RUN pip3 install -r requirements.txt
+RUN pip install virtualenv \
+    && python3 -m venv venv \
+    && . venv/bin/activate
 
-CMD [ "python3", "./alma.py" ]
+RUN export FLASK_APP=alma.py
+
+WORKDIR /usr/src/alma
+
+RUN pip install -r requirements.txt
+
+CMD [ "flask", "run" ]
