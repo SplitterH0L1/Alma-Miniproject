@@ -15,7 +15,7 @@ $ cd alma
 $ pip install virtualenv \
     && venv .venv \
     && source .venv/bin/activate
-$ pip install requeriments.txt
+$ pip install requirements.txt
 ```
 
 ### Variables para la base de datos
