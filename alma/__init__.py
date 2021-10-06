@@ -30,7 +30,7 @@ if __name__=="__main__":
     create_app()
 
 
-# $env:FLASK_APP="alma.py"
+# 
 # $env:FLASK_ENV="development"
 # $env:FLASK_DATABASE_HOST="localhost"
 # $env:FLASK_DATABASE_PASSWORD="24204121"
